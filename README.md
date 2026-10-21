@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/33787359/README.md)
 # 📊 Global Sales Analysis | Python + pandas
 
 *Course project from the Python module of my data analytics training.*
