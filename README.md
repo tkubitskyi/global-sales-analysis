@@ -1,8 +1,9 @@
+[README.md](https://github.com/user-attachments/files/33787359/README.md)
 # 📊 Global Sales Analysis | Python + pandas
 
 *Course project from the Python module of my data analytics training.*
 
-**[Notebook](Global_Retail_Sales_Data_Cleaning,_Analysis_&_Insights__v14 (3).ipynb)**
+**[Notebook](global_sales_analysis.ipynb)**
 
 ## 🔍 Project Overview
 
