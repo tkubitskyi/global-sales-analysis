@@ -2,7 +2,7 @@
 
 *Course project from the Python module of my data analytics training.*
 
-**[Notebook](global_sales_analysis.ipynb)**
+**[Notebook](Global_Retail_Sales_Data_Cleaning,_Analysis_&_Insights__v14 (3).ipynb)**
 
 ## 🔍 Project Overview
 
