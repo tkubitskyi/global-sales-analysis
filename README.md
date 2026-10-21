@@ -1,54 +1,44 @@
-# 📊 Global Sales Analysis | Python + SQL
+# 📊 Global Sales Analysis | Python + pandas
+
+*Course project from the Python module of my data analytics training.*
+
+**[Notebook](global_sales_analysis.ipynb)**
 
 ## 🔍 Project Overview
-This project focuses on cleaning, analyzing, and visualizing global sales data to extract meaningful business insights and support data-driven decision-making.
 
-The analysis explores company performance across product categories, countries, regions, and sales channels (online vs offline), with a special focus on delivery time and its impact on profitability.
+Cleaning, merging and exploring a multi-table sales dataset: 1,330 orders across 12 product categories and 45 countries in Europe and Asia, 2010 – July 2017. The goal was to practise a full pandas workflow, from raw CSV files to business-oriented findings, and to check which patterns in the data are real.
 
----
+## 🗄 Data
 
-## 🔥 Key Insights
-- The company generated approximately **$1.7B in revenue** with an average profit margin of **29.5%**.  
-- Three main categories — **Office Supplies, Home, and Cosmetics** — generate the majority of total revenue.  
-- **Office Supplies alone accounts for over $400M**, making it the primary revenue driver.  
-- Delivery time varies by more than **14 days between countries**, indicating logistics inefficiencies in certain regions.  
-- Profit growth is primarily driven by **revenue volume rather than margin expansion**, as margins remain relatively stable (25–35%).  
+- `events.csv` – orders: dates, country code, product, sales channel, units, unit price and cost
+- `products.csv` – product categories
+- `countries.csv` – country names and regions
 
----
+## ⚙️ What I Did
 
-## 🛠 Tools & Skills Used
+1. **Data cleaning:** standardised column names, converted dates and numeric types, normalised text fields, removed 2 orders with missing quantity, checked for impossible values (non-positive prices, negative costs, ship date before order date).
+2. **Merging:** joined the three tables into one analytical dataset and validated row counts after each merge.
+3. **Metrics:** revenue, cost, profit, margin and shipping time per order.
+4. **EDA:** categories, countries and regions, online vs. offline, shipping time, monthly and weekday dynamics.
 
-**Tools:**  
-- Python (pandas, numpy)  
-- SQL  
-- Git / GitHub  
+## 📈 Key Findings
 
-**Skills:**  
-- Data cleaning & preprocessing  
-- Exploratory Data Analysis (EDA)  
-- Data visualization  
-- Business insight generation  
-- Analytical thinking  
+- **Total revenue ~$1.70B, profit ~$501M, margin 29.5%.** 82 orders (~$103M, 6% of revenue) have no country code and are excluded from geographic analysis.
+- **Revenue leaders are the most expensive categories, not the most demanded ones.** Office Supplies ($402M), Household ($294M) and Cosmetics ($233M) lead in revenue, but units sold are similar across all 12 categories (440K–618K units). Each category has a single fixed unit price for the whole period, so the revenue ranking mirrors the price ranking.
+- **Margins differ widely by category:** from 13.6% (Meat) to 67.2% (Clothes). Clothes sells as many units as other categories; its small revenue share comes from a low unit price ($109).
+- **Online and offline are balanced:** 49% vs. 51% of revenue, with almost the same margin (29.9% vs. 29.1%).
+- **Shipping time does not affect profit** (r = 0.06).
+- **Differences in shipping time between countries are within random variation.** Country averages range from 18 to 33 days, but each country has only 13–40 orders and individual shipping times vary from 0 to 50 days. Shuffling shipping times randomly across countries produces a similar gap (median ~12 days, 95th percentile ~16 days; ANOVA p = 0.44). The same applies to Europe vs. Asia (25 vs. 26 days, p = 0.44).
+- **No meaningful weekday pattern** in the number of orders (χ², p = 0.32).
 
----
+## 💡 What the Data Itself Shows
 
-## 📈 What I Did as an Analyst
-- Cleaned and validated raw transactional sales data  
-- Merged multiple datasets into a single analytical dataset  
-- Performed exploratory data analysis to identify revenue and profit drivers  
-- Analyzed performance across product categories, countries, and sales channels  
-- Investigated delivery time impact on profitability  
-- Identified seasonal patterns and revenue trends  
-- Developed business-focused insights and strategic recommendations  
+The dataset looks synthetic: fixed prices per category, units per order spread evenly from 2 to ~10,000, and shipping times spread evenly from 0 to 50 days. Recognising this matters more than the individual numbers: many apparent "insights" (country logistics gaps, weekday peaks) disappear once you check them against what random variation alone would produce.
 
----
+## 🔁 Revision Note
 
-## 🧠 What This Project Demonstrates
-This project demonstrates my ability to perform a full-cycle data analysis workflow — from raw data cleaning to delivering actionable business insights.
+The commentary inside the notebook was written during the course. When I reviewed the project later, several of those interpretations did not hold up: the country shipping-time gap and weekday peaks are consistent with chance, and Clothes' lower revenue is driven by price rather than sales volume. The findings above reflect the revised analysis.
 
-It reflects my analytical thinking, ability to work with real-world structured datasets, and focus on translating data into meaningful business decisions.
+## 🛠 Stack
 
----
-
-## 🎯 About
-This project was built as part of my transition into data analytics and reflects my readiness for a junior data analyst role.
+`Python` · `pandas` · `NumPy` · `matplotlib` · `seaborn` · `Google Colab`
